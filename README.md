@@ -1,2 +1,1 @@
-# empty
-empty repository with only a readme
+This program creates a stack ADT.
