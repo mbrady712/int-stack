@@ -7,11 +7,15 @@ Purpose: This program creates a stack ADT.
 #ifndef STACK_STACK_H
 #define STACK_STACK_H
 
+#include <iostream>
+
+#define SIZE 10
+
 class Stack
 {
 public:
     int top;
-    int contents[10]; 
+    int contents[SIZE]; 
 
     Stack();
     bool push(int x);
