@@ -32,7 +32,16 @@ int Stack::pop(){
     }
 }
 
-bool Stack::isEmpty()
-{
+bool Stack::isEmpty(){
     return top == -1;
+}
+
+int Stack::peek(){
+    //Check top == -1. If yes, underflow error
+    if(top == -1){
+        throw std::underflow_error("The stack is empty");
+    }else{
+        //If no, return element at top and decrement top
+        return contents[top];
+    }
 }

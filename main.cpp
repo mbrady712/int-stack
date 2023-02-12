@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
     Stack s1;
 
     //push()
-    std::cout << "push() test: " << std::endl;
+    std::cout << "push() test: " << s1.push(10) << std::endl;
 
     //pop()
     int popped;
@@ -30,9 +30,18 @@ int main(int argc, char** argv) {
     //isEmpty()
     std::cout << "isEmpty() test: " << s1.isEmpty() << std::endl;
 
-    //For debugging purposes only. Delete after program completion
-    std::cout << "Contents of stack: " << std::endl;
-    for(int i = 0; i < sizeof(s1.contents)/sizeof(int); i++){
-        std::cout << s1.contents[i] << std::endl;
+    //peek()
+    int peekInt;
+
+    std::cout << "peek() test: " << std::endl;
+
+    try
+    {
+        peekInt = s1.peek();
+        std::cout << "Int returned from peek(): " <<  peekInt << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
     }
 }
