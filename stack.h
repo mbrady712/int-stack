@@ -16,7 +16,7 @@ class Stack
 {
 public:
     Stack();
-    bool push(int x);
+    bool push(int);
     int pop();
     int peek();
     bool isEmpty();

@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
 
     //Push until unsuccessful push and stack overflow: returns 0/false
 
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < SIZE - 1; i++){
         s1.push(3);
     }
 
@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 
     //Unsuccessful pop. Empty the stack, then call pop. This returns a stack underflow error.
 
-    for(int i = 0; i < 9; i++){
+    for(int i = 0; i < SIZE - 1; i++){
         s1.pop();
     }
 
