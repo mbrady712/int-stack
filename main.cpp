@@ -10,7 +10,6 @@ int main(int argc, char** argv) {
     Stack s1;
 
     //push()
-
     std::cout << "Results of push(): ";
 
     if(s1.push(10) == 1){
@@ -20,8 +19,6 @@ int main(int argc, char** argv) {
     }
 
     //pop()
-    int popped;
-
     std::cout << "Results of pop(): ";
 
     try{
@@ -41,13 +38,10 @@ int main(int argc, char** argv) {
     }
 
     //peek()
-    int peekInt;
-
     std::cout << "Results of peek(): ";
 
     try{
-        peekInt = s1.peek();
-        std::cout << "Int returned from peek(): " <<  peekInt << std::endl;
+        std::cout << "Int returned from peek(): " <<  s1.peek() << std::endl;
     }
     catch(const std::exception& e){
         std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
