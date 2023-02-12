@@ -11,24 +11,19 @@ Stack::Stack(){
 }
 
 bool Stack::push(int x){
-    //Check top < SIZE -1
     if(top < SIZE - 1){
-        //if yes, increment top and put element on the stack at top
         top++;
         contents[top] = x;
     }
-    //if no, overflow error
-    return contents[top] == x;
+    return top < SIZE - 1;
 }
 
 int Stack::pop(){
-    //Check top == -1. If yes, underflow error
     if(top == -1){
         throw std::underflow_error("Stack Underflow");
     }else{
-        //If no, return element at top and decrement top
-        return contents[top];
         top--;
+        return contents[top + 1];
     }
 }
 
@@ -37,11 +32,9 @@ bool Stack::isEmpty(){
 }
 
 int Stack::peek(){
-    //Check top == -1. If yes, underflow error
     if(top == -1){
         throw std::underflow_error("The stack is empty");
     }else{
-        //If no, return element at top and decrement top
         return contents[top];
     }
 }

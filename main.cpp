@@ -10,38 +10,46 @@ int main(int argc, char** argv) {
     Stack s1;
 
     //push()
-    std::cout << "push() test: " << s1.push(10) << std::endl;
+
+    std::cout << "Results of push(): ";
+
+    if(s1.push(10) == 1){
+        std::cout << "Push successful." << std::endl;
+    }else{
+        std::cout << "Push unsuccessful: Stack overflow" << std::endl;
+    }
 
     //pop()
     int popped;
 
-    std::cout << "pop() test: " << std::endl;
+    std::cout << "Results of pop(): ";
 
-    try
-    {
-        popped = s1.pop();
-        std::cout << "Pop successful. Int returned from pop(): " <<  popped << std::endl;
+    try{
+        std::cout << "Pop successful. Int returned from pop(): " <<  s1.pop() << std::endl;
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e){
         std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
     }
 
     //isEmpty()
-    std::cout << "isEmpty() test: " << s1.isEmpty() << std::endl;
+    std::cout << "Results of isEmpty(): ";
+   
+    if(s1.isEmpty() == 1){
+        std::cout << "Stack is empty." << std::endl;
+    }else{
+        std::cout << "Stack is not empty." << std::endl;
+    }
 
     //peek()
     int peekInt;
 
-    std::cout << "peek() test: " << std::endl;
+    std::cout << "Results of peek(): ";
 
-    try
-    {
+    try{
         peekInt = s1.peek();
         std::cout << "Int returned from peek(): " <<  peekInt << std::endl;
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e){
         std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
     }
 }
