@@ -23,8 +23,8 @@ int Stack::pop(){
         throw std::underflow_error("Stack Underflow");
     }else{
         top--;
-        return contents[top + 1];
     }
+    return contents[top + 1];
 }
 
 bool Stack::isEmpty(){
@@ -34,7 +34,6 @@ bool Stack::isEmpty(){
 int Stack::peek(){
     if(top == -1){
         throw std::underflow_error("The stack is empty");
-    }else{
-        return contents[top];
     }
+    return contents[top];
 }
