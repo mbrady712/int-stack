@@ -7,7 +7,7 @@ Purpose: This program creates a stack ADT.
 #include "stack.h"
 
 Stack::Stack(){
-    top = -1;
+    top = BOTTOM;
 }
 
 bool Stack::push(int x){

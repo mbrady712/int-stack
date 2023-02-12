@@ -10,18 +10,19 @@ Purpose: This program creates a stack ADT.
 #include <iostream>
 
 #define SIZE 10
+#define BOTTOM -1
 
 class Stack
 {
 public:
-    int top;
-    int contents[SIZE]; 
-
     Stack();
     bool push(int x);
     int pop();
     int peek();
     bool isEmpty();
+private:
+    int contents[SIZE]; 
+    int top;
 };
 
 #endif //STACK_STACK_H
