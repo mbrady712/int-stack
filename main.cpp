@@ -13,7 +13,6 @@ int main(int argc, char** argv) {
     std::cout << "push() test: " << std::endl;
 
     //pop()
-
     int popped;
 
     std::cout << "pop() test: " << std::endl;
@@ -27,6 +26,9 @@ int main(int argc, char** argv) {
     {
         std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
     }
+
+    //isEmpty()
+    std::cout << "isEmpty() test: " << s1.isEmpty() << std::endl;
 
     //For debugging purposes only. Delete after program completion
     std::cout << "Contents of stack: " << std::endl;

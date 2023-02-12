@@ -31,3 +31,8 @@ int Stack::pop(){
         top--;
     }
 }
+
+bool Stack::isEmpty()
+{
+    return top == -1;
+}
