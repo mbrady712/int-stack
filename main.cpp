@@ -9,65 +9,118 @@ Purpose: This program creates a stack ADT.
 int main(int argc, char** argv) {
     Stack s1;
 
+    //Code from lines 16 to 101 tests each function on the stack in each of its three possible states: empty, partially full, and full.
     //push()***********************************************
 
-    //Successful push: returns 1/true
+    std::cout << "push():" << std::endl;
 
-    std::cout << s1.push(2) << std::endl;
-
-    //Push until unsuccessful push and stack overflow: returns 0/false
+    //Test push on empty stack to fill up the entire stack with numbers
 
     for(int i = 0; i < SIZE - 1; i++){
-        s1.push(3);
+        std::cout << s1.push(TEST_VAL) << std::endl; 
     }
 
-    std::cout << s1.push(4) << std::endl;
+    //Test to push one more past limit
+    std::cout << s1.push(TEST_VAL) << std::endl;
 
-    //pop()************************************************
+    //pop()***********************************************
 
-    //Successful pop. Returns last int that was successfully pushed above.
+    std::cout << "pop():" << std::endl;
 
-    std::cout << s1.pop() << std::endl;
+    //Test pop on empty stack. This returns a stack underflow error.
 
-    //Unsuccessful pop. Empty the stack, then call pop. This returns a stack underflow error.
-
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         s1.pop();
     }
 
     try{
-        s1.pop();
+        std::cout << s1.pop() << std::endl;
     }
     catch(const std::exception& e){
         std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
     }
 
+    //Fill stack, then test pop on every stack element, so that the entire stack is emptied
+    for(int i = 0; i < SIZE - 1; i++){
+        s1.push(TEST_VAL); 
+    }
+
+    for(int i = 0; i < SIZE - 1; i++){
+        std::cout << s1.pop() << std::endl;
+    }
+
     //isEmpty()********************************************
 
-    //Test on empty stack (stack was emptied from earlier code). Will return 1/true.
+    std::cout << "isEmpty():" << std::endl;
+
+    //Test isEmpty on empty stack.
 
     std::cout << s1.isEmpty() << std::endl;
 
-    //Test on stack that is not empty. Will return 0/false.
+    //Test isEmpty on stack that has every possible amount filled.
 
-    s1.push(5);
+    for(int i = 0; i < SIZE - 1; i++){
+        s1.push(TEST_VAL);
+        std::cout << s1.isEmpty() << std::endl;
+    }
+    
+    //peek()************************************************
 
-    std::cout << s1.isEmpty() << std::endl;
+    std::cout << "peek():" << std::endl;
 
-    //peek()*************************************************
+    //Test peek on empty stack
 
-    //Successful peek. Returns the last int pushed to the stack.
-
-    std::cout << s1.peek() << std::endl;
-
-    //Unsuccessful peek on empty stack
-
-    s1.pop();
+    for(int i = 0; i < SIZE - 1; i++){
+        s1.pop();
+    }
 
     try{
-        s1.peek();
+        std::cout << s1.peek() << std::endl;
     }
     catch(const std::exception& e){
         std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
+    }
+
+    //Test peek on every element of full stack
+
+    for(int i = 0; i < SIZE - 1; i++){
+        s1.push(TEST_VAL);
+        std::cout << s1.peek() << std::endl;
+    }
+
+    //Random operation testing***********************
+    //Empty the stack
+    for(int i = 0; i < SIZE - 1; i++){
+        s1.pop();
+    }
+
+    std::cout << "Random operation testing (stack starts empty): " << std::endl;    
+
+    for (int i = 0; i < RANDOM_RUNS; i++){
+        int randNum = rand() % 4 + 1;
+        switch(randNum) {
+            case 1:
+                std::cout << "push():" << std::endl;
+                std::cout << s1.push(TEST_VAL) << std::endl;
+            case 2:
+                std::cout << "pop():" << std::endl;
+                try{
+                    std::cout << s1.pop() << std::endl;
+                }
+                catch(const std::exception& e){
+                    std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
+                }
+            case 3:
+                std::cout << "isEmpty():" << std::endl;
+                std::cout << s1.isEmpty() << std::endl;
+            case 4:
+                std::cout << "peek():" << std::endl;
+                try{
+                    std::cout << s1.peek() << std::endl;
+                }
+                catch(const std::exception& e){
+                    std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
+                }
+        }
     }
 }

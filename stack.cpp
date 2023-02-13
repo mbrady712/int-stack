@@ -10,10 +10,10 @@ Stack::Stack(){
     top = BOTTOM;
 }
 
-bool Stack::push(int x){
+bool Stack::push(int val){
     if(top < SIZE - 1){
         top++;
-        contents[top] = x;
+        contents[top] = val;
     }
     return top < SIZE - 1;
 }
