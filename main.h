@@ -10,6 +10,7 @@ Purpose: This program creates a stack ADT.
 #define RANDOM_RUNS 10
 
 #include <iostream>
+#include <stdlib.h>
 #include "stack.h" 
 
 #endif //STACK_MAIN_H
