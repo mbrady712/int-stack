@@ -11,11 +11,13 @@ Stack::Stack(){
 }
 
 bool Stack::push(int val){
+    success = false;
     if(top < SIZE - 1){
         top++;
         contents[top] = val;
+        success = true;
     }
-    return top < SIZE - 1;
+    return success;
 }
 
 int Stack::pop(){
