@@ -11,6 +11,5 @@ Purpose: This program creates a stack ADT.
 
 #include <iostream>
 #include "stack.h" 
-#include <stdlib.h>
 
 #endif //STACK_MAIN_H
