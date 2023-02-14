@@ -12,11 +12,13 @@ int main(int argc, char** argv) {
     //Code from lines 16 to 101 tests each function on the stack in each of its three possible states: empty, partially full, and full.
     //push()***********************************************
 
+    std::cout << "Testing each function for when stack is empty, partially full, and full:" << std::endl;
+
     std::cout << "push():" << std::endl;
 
     //Test push on empty stack to fill up the entire stack with numbers
 
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         std::cout << s1.push(TEST_VAL) << std::endl; 
     }
 
@@ -41,11 +43,11 @@ int main(int argc, char** argv) {
     }
 
     //Fill stack, then test pop on every stack element, so that the entire stack is emptied
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         s1.push(TEST_VAL); 
     }
 
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         std::cout << s1.pop() << std::endl;
     }
 
@@ -59,7 +61,7 @@ int main(int argc, char** argv) {
 
     //Test isEmpty on stack that has every possible amount filled.
 
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         s1.push(TEST_VAL);
         std::cout << s1.isEmpty() << std::endl;
     }
@@ -70,7 +72,7 @@ int main(int argc, char** argv) {
 
     //Test peek on empty stack
 
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         s1.pop();
     }
 
@@ -83,14 +85,14 @@ int main(int argc, char** argv) {
 
     //Test peek on every element of full stack
 
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         s1.push(TEST_VAL);
         std::cout << s1.peek() << std::endl;
     }
 
     //Random operation testing***********************
     //Empty the stack
-    for(int i = 0; i < SIZE - 1; i++){
+    for(int i = 0; i < SIZE; i++){
         s1.pop();
     }
 
@@ -98,29 +100,28 @@ int main(int argc, char** argv) {
 
     for (int i = 0; i < RANDOM_RUNS; i++){
         int randNum = rand() % 4 + 1;
-        switch(randNum) {
-            case 1:
-                std::cout << "push():" << std::endl;
-                std::cout << s1.push(TEST_VAL) << std::endl;
-            case 2:
-                std::cout << "pop():" << std::endl;
-                try{
-                    std::cout << s1.pop() << std::endl;
-                }
-                catch(const std::exception& e){
-                    std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
-                }
-            case 3:
-                std::cout << "isEmpty():" << std::endl;
-                std::cout << s1.isEmpty() << std::endl;
-            case 4:
-                std::cout << "peek():" << std::endl;
-                try{
-                    std::cout << s1.peek() << std::endl;
-                }
-                catch(const std::exception& e){
-                    std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
-                }
+        if(randNum == 1){
+            std::cout << "push():" << std::endl;
+            std::cout << s1.push(TEST_VAL) << std::endl;
+        }else if(randNum == 2){
+            std::cout << "pop():" << std::endl;
+            try{
+                std::cout << s1.pop() << std::endl;
+            }
+            catch(const std::exception& e){
+                std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
+            }
+        }else if(randNum == 3){
+            std::cout << "isEmpty():" << std::endl;
+            std::cout << s1.isEmpty() << std::endl;
+        }else{
+            std::cout << "peek():" << std::endl;
+            try{
+                std::cout << s1.peek() << std::endl;
+            }
+            catch(const std::exception& e){
+                std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
+            }
         }
     }
 }
