@@ -38,8 +38,8 @@ int main(int argc, char** argv) {
     try{
         std::cout << s1.pop() << std::endl;
     }
-    catch(const std::exception& e){
-        std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
+    catch(...){
+        std::cerr << "Pop underflow error: stack is empty" << std::endl;
     }
 
     //Fill stack, then test pop on every stack element, so that the entire stack is emptied
@@ -79,8 +79,8 @@ int main(int argc, char** argv) {
     try{
         std::cout << s1.peek() << std::endl;
     }
-    catch(const std::exception& e){
-        std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
+    catch(...){
+        std::cerr << "Peek unsuccessful: stack is empty" << std::endl;
     }
 
     //Test peek on every element of full stack
@@ -108,8 +108,8 @@ int main(int argc, char** argv) {
             try{
                 std::cout << s1.pop() << std::endl;
             }
-            catch(const std::exception& e){
-                std::cerr << "Pop unsuccessful: " << e.what() << std::endl;
+            catch(...){
+                std::cerr << "Pop underflow error: stack is empty"<< std::endl;
             }
         }else if(randNum == 3){
             std::cout << "isEmpty():" << std::endl;
@@ -119,8 +119,8 @@ int main(int argc, char** argv) {
             try{
                 std::cout << s1.peek() << std::endl;
             }
-            catch(const std::exception& e){
-                std::cerr << "Peek unsuccessful: " << e.what() << std::endl;
+            catch(...){
+                std::cerr << "Peek underflow error: stack is empty" << std::endl;
             }
         }
     }

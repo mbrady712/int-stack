@@ -20,7 +20,7 @@ public:
     int pop();
     int peek();
     bool isEmpty();
-    bool success;
+    
 private:
     int contents[SIZE]; 
     int top;

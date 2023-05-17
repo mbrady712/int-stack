@@ -11,7 +11,7 @@ Stack::Stack(){
 }
 
 bool Stack::push(int val){
-    success = false;
+    bool success = false;
     if(top < SIZE - 1){
         top++;
         contents[top] = val;
@@ -21,8 +21,8 @@ bool Stack::push(int val){
 }
 
 int Stack::pop(){
-    if(top == -1){
-        throw std::underflow_error("Stack Underflow");
+    if(top < 0){
+        throw -1;
     }else{
         top--;
     }
@@ -30,12 +30,12 @@ int Stack::pop(){
 }
 
 bool Stack::isEmpty(){
-    return top == -1;
+    return top < 0;
 }
 
 int Stack::peek(){
-    if(top == -1){
-        throw std::underflow_error("The stack is empty");
+    if(top < 0){
+        throw -1;
     }
     return contents[top];
 }
